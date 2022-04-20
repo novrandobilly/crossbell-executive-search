@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Header from './header';
+import Footer from './footer';
 import styles from './layout.module.scss';
 
 type Props = {
@@ -11,6 +12,7 @@ const Layout: FC<Props> = ({ children }) => {
     <div className={styles['container']}>
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,35 @@
+.container {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffeedd;
+  padding: 50px 0;
+  max-width: 1920px;
+}
+.title {
+  border-bottom: 2px solid #000;
+  margin: 0 0 30px;
+}
+.experiences {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  & > *:first-child {
+    margin-right: 30px !important;
+  }
+}
+
+.experiences-text {
+  width: 65%;
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  align-self: center;
+}
