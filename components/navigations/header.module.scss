@@ -1,12 +1,18 @@
 .container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  max-width: 1536px;
+  max-width: 1920px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 40px;
   border-bottom: 2px solid #f79f35;
   margin: auto;
+  z-index: 15;
+  background-color: #fff;
 }
 
 .navigations {
