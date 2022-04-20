@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  max-width: 1536px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 40px;
+  border-bottom: 2px solid #f79f35;
+  margin: auto;
+}
+
+.navigations {
+  padding: 0;
+  list-style: none;
+  li {
+    font-weight: 700;
+  }
+}
