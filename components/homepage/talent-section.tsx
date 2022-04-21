@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './talent-section.module.scss';
 
 const Talent = () => {
@@ -7,7 +8,9 @@ const Talent = () => {
       <div className={styles['talent-section']}>
         <h1 className={styles['title']}>Qualified Enough To Be Our Talent?</h1>
         <h1 className={styles['title']}>Apply Now To Join Our Selection Process!</h1>
-        <button>Apply As Talent</button>
+        <Link passHref href='/talent-registration'>
+          <button>Apply As Talent</button>
+        </Link>
       </div>
     </div>
   );
