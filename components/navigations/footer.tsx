@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className={styles['container']}>
       <div className={styles['footer']}>
-        <Image alt='Crossbell Logo' src={LogoVert} width={200} height={141} />
+        <Image alt='Crossbell Logo' src={LogoVert} width={200} height={141} priority={false} />
         <div className={styles['office-address']}>
           <p>Taman Laguna</p>
           <p>Blok K</p>

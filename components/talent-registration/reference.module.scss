@@ -4,27 +4,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h1 {
+    margin: 0;
+  }
+}
 
+.reference {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 15px 0;
   h3 {
-    margin: 0 0 25px;
+    margin: 0 0 10px;
     border-bottom: 2px solid #000;
   }
 }
 
 .input-item {
-  width: 100%;
-  max-width: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  margin-bottom: 15px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
   label {
-    font-size: 14px;
     font-weight: 700;
   }
-
-  select,
   input {
     width: 100%;
     padding: 10px;
@@ -35,44 +43,17 @@
   }
 }
 
-.gender-options {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.gender-title {
-  margin-bottom: 5px;
-}
-.gender {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 15px;
-  label {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  input {
-    width: fit-content;
-    margin: 0;
-    margin-right: 5px;
-  }
-}
-
-.date-input {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-}
-
 .navigation-buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 300px;
+  margin-top: 30px;
 }
 
 .next-button {
+  width: 125px;
   outline: none;
   border: none;
   background-color: #f79f35;
@@ -80,11 +61,12 @@
   border: 2px solid #f79f35;
   border-radius: 10px;
   font-size: 1rem;
-  padding: 0.5em 1.5em;
+  padding: 0.5em 0;
   cursor: pointer;
 }
 
 .previous-button {
+  width: 125px;
   outline: none;
   border: none;
   background-color: #fff;
@@ -92,6 +74,6 @@
   border: 2px solid #f79f35;
   border-radius: 10px;
   font-size: 1rem;
-  padding: 0.5em 1.5em;
+  padding: 0.5em 0;
   cursor: pointer;
 }

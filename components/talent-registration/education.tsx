@@ -1,64 +1,75 @@
 import React, { useState } from 'react';
+import { EducationInputType } from '../../pages/talent-registration';
 import styles from './education.module.scss';
 
-type EducationInputType = {
-  educationLevel: string;
-  university: string;
-  major: string;
-  graduationYear: string;
-};
-
-type EducationProps = {
+type EducationPropTypes = {
   handleNext: () => void;
+  handlePrevious: () => void;
+  education: Array<EducationInputType>;
+  setEducation: React.Dispatch<React.SetStateAction<Array<EducationInputType>>>;
+  educationCount: number;
+  setEducationCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const Education: React.FC<EducationProps> = ({ handleNext }) => {
-  const [educationNumber, setEducationNumber] = useState<number>(1);
-  const [education, setEducation] = useState<Array<EducationInputType>>([]);
-
+const Education: React.FC<EducationPropTypes> = ({
+  handleNext,
+  handlePrevious,
+  setEducation,
+  education,
+  educationCount,
+  setEducationCount,
+}) => {
   const handleAddEducation = () => {
-    setEducationNumber((prev) => prev + 1);
+    setEducationCount((prev) => prev + 1);
   };
 
   const handleEducationLevelChange = (e: React.ChangeEvent<HTMLSelectElement>, index: number) => {
-    const newEducation = [...education];
-    newEducation[index] = {
-      ...newEducation[index],
-      educationLevel: e.target.value,
-    };
-    setEducation(newEducation);
+    setEducation((prev) => {
+      const newEducation = [...prev];
+      newEducation[index] = {
+        ...newEducation[index],
+        educationLevel: e.target.value,
+      };
+      return newEducation;
+    });
   };
 
   const handleUniversityChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newEducation = [...education];
-    newEducation[index] = {
-      ...newEducation[index],
-      university: e.target.value,
-    };
-    setEducation(newEducation);
+    setEducation((prev) => {
+      const newEducation = [...prev];
+      newEducation[index] = {
+        ...newEducation[index],
+        university: e.target.value,
+      };
+      return newEducation;
+    });
   };
 
   const handleMajorChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newEducation = [...education];
-    newEducation[index] = {
-      ...newEducation[index],
-      major: e.target.value,
-    };
-    setEducation(newEducation);
+    setEducation((prev) => {
+      const newEducation = [...prev];
+      newEducation[index] = {
+        ...newEducation[index],
+        major: e.target.value,
+      };
+      return newEducation;
+    });
   };
 
   const handleGraduationYearChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newEducation = [...education];
-    newEducation[index] = {
-      ...newEducation[index],
-      graduationYear: e.target.value,
-    };
-    setEducation(newEducation);
+    setEducation((prev) => {
+      const newEducation = [...prev];
+      newEducation[index] = {
+        ...newEducation[index],
+        graduationYear: e.target.value,
+      };
+      return newEducation;
+    });
   };
 
   let educationList = [];
 
-  for (let i = 0; i < educationNumber; i++) {
+  for (let i = 0; i < educationCount; i++) {
     educationList.push(
       <div className={styles['education-list-item']} key={i}>
         <h4>Education {i + 1}</h4>
@@ -67,7 +78,8 @@ const Education: React.FC<EducationProps> = ({ handleNext }) => {
           <select
             name={`educationLevel_${i}`}
             id={`educationLevel_${i}`}
-            onChange={(event) => handleEducationLevelChange(event, i)}>
+            onChange={(event) => handleEducationLevelChange(event, i)}
+            value={education[i]?.educationLevel || ''}>
             <option value=''></option>
             <option value='bachelor'>Bachelor &#40;S1&#41;</option>
             <option value='master'>Master &#40;S2&#41;</option>
@@ -76,11 +88,21 @@ const Education: React.FC<EducationProps> = ({ handleNext }) => {
         </div>
         <div className={styles['input-item']}>
           <label htmlFor={`university_${i}`}>University </label>
-          <input type='text' id={`university_${i}`} onChange={(event) => handleUniversityChange(event, i)} />
+          <input
+            type='text'
+            id={`university_${i}`}
+            onChange={(event) => handleUniversityChange(event, i)}
+            value={education[i]?.university || ''}
+          />
         </div>
         <div className={styles['input-item']}>
           <label htmlFor={`major_${i}`}>Major </label>
-          <input type='text' id={`major_${i}`} onChange={(event) => handleMajorChange(event, i)} />
+          <input
+            type='text'
+            id={`major_${i}`}
+            onChange={(event) => handleMajorChange(event, i)}
+            value={education[i]?.major || ''}
+          />
         </div>
         <div className={styles['input-item']}>
           <label htmlFor={`graduationYear_${i}`}>Graduation Year </label>
@@ -90,6 +112,7 @@ const Education: React.FC<EducationProps> = ({ handleNext }) => {
             min='1900'
             max='2099'
             onChange={(event) => handleGraduationYearChange(event, i)}
+            value={education[i]?.graduationYear || ''}
           />
         </div>
       </div>
@@ -103,9 +126,14 @@ const Education: React.FC<EducationProps> = ({ handleNext }) => {
       <button type='button' onClick={handleAddEducation} className={styles['add-button']}>
         + Add Education
       </button>
-      <button onClick={handleNext} type='button' className={styles['next-button']}>
-        Next
-      </button>
+      <div className={styles['navigation-buttons']}>
+        <button onClick={handlePrevious} type='button' className={styles['previous-button']}>
+          Previous
+        </button>
+        <button onClick={handleNext} type='button' className={styles['next-button']}>
+          Next
+        </button>
+      </div>
     </section>
   );
 };

@@ -4,13 +4,69 @@ import Head from 'next/head';
 import Identity from '../components/talent-registration/identity';
 import Education from '../components/talent-registration/education';
 import Certification from '../components/talent-registration/certification';
+import Competence from '../components/talent-registration/competence';
+import Remuneration from '../components/talent-registration/remuneration';
+import Reference from '../components/talent-registration/reference';
 import styles from './talent-registration.module.scss';
 
+export type IdentityType = {
+  name: string;
+  email: string;
+  phone: string;
+  gender: string;
+  dateOfBirth: string;
+  placeOfBirth: string;
+  religion: string;
+  maritalStatus: string;
+  address: string;
+};
+
+export type EducationInputType = {
+  educationLevel: string;
+  university: string;
+  major: string;
+  graduationYear: string;
+};
+
+export type CertificationInputType = {
+  certificationTitle: string;
+  institution: string;
+  expirationDate: string;
+  validForever: boolean;
+};
+
 const TalentRegistration: NextPage = () => {
-  const [phase, setPhase] = useState<number>(2);
+  const [phase, setPhase] = useState<number>(0);
+  const [identity, setIdentity] = useState<IdentityType>({
+    name: '',
+    email: '',
+    phone: '',
+    gender: '',
+    dateOfBirth: '',
+    placeOfBirth: '',
+    religion: '',
+    maritalStatus: '',
+    address: '',
+  });
+  const [educationCount, setEducationCount] = useState<number>(1);
+  const [education, setEducation] = useState<Array<EducationInputType>>([
+    {
+      educationLevel: '',
+      university: '',
+      major: '',
+      graduationYear: '',
+    },
+  ]);
+  const [certification, setCertification] = useState<Array<CertificationInputType>>([]);
+  const [competence, setCompetence] = useState<Array<string>>([]);
+  const [achievement, setAchievement] = useState<string>('');
+  const [certificationCount, setCertificationCount] = useState<number>(1);
 
   const handleNext = () => {
     setPhase((prev) => prev + 1);
+  };
+  const handlePrevious = () => {
+    if (phase > 0) setPhase((prev) => prev - 1);
   };
   return (
     <div className={styles['container']}>
@@ -20,90 +76,56 @@ const TalentRegistration: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <h1>Talent Registration</h1>
+      <h1 className={styles['title']}>Talent Registration</h1>
 
       <div className={styles['steps']}>
-        <p>IDENTITY</p>
+        <p style={phase >= 0 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>IDENTITY</p>
         <span></span>
-        <p>EDUCATION</p>
+        <p style={phase >= 1 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>EDUCATION</p>
         <span></span>
-        <p>CERTIFICATION</p>
+        <p style={phase >= 2 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>CERTIFICATION</p>
         <span></span>
-        <p>COMPETENCE &amp; ACHIEVEMENT</p>
+        <p style={phase >= 3 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>
+          COMPETENCE &amp; ACHIEVEMENT
+        </p>
         <span></span>
-        <p>REMUNERATION</p>
+        <p style={phase >= 4 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>REMUNERATION</p>
         <span></span>
-        <p>REFERENCE</p>
+        <p style={phase >= 5 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>REFERENCE</p>
       </div>
       <form className={styles['talent-registration-form']}>
-        {phase === 0 && <Identity handleNext={handleNext} />}
-        {phase === 1 && <Education handleNext={handleNext} />}
-        {phase === 2 && <Certification handleNext={handleNext} />}
-        {/* 
-
-       
-
-        <div className={styles['remuneration']}>
-          <p>Current Remuneration</p>
-          <div className={styles['input-item']}>
-            <label htmlFor='currentSalary'>Current Salary: </label>
-            <input type='text' id='currentSalary' />
-          </div>
-          <div className={styles['input-item']}>
-            <label htmlFor='currentTax'>Current Tax: </label>
-            <input type='text' id='currentTax' />
-          </div>
-          <div className={styles['input-item']}>
-            <label htmlFor='currentBenefit'>Current Benefit: </label>
-            <input type='text' id='currentBenefit' />
-          </div>
-          <p>Expected Remuneration</p>
-          <div className={styles['input-item']}>
-            <label htmlFor='expectedSalary'>Expected Salary: </label>
-            <input type='text' id='expectedSalary' />
-          </div>
-          <div className={styles['input-item']}>
-            <label htmlFor='expectedTax'>Expected Tax: </label>
-            <input type='text' id='expectedTax' />
-          </div>
-          <div className={styles['input-item']}>
-            <label htmlFor='expectedBenefit'>Expected Benefit: </label>
-            <input type='text' id='expectedBenefit' />
-          </div>
-        </div>
-
-        <div className={styles['reference']}>
-          <div className={styles['reference-1']}>
-            <p>Referensi 1</p>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference1Name'>Nama: </label>
-              <input type='text' id='reference1Name' />
-            </div>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference1Phone'>Phone: </label>
-              <input type='text' id='reference1Phone' />
-            </div>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference1Relation'>Relation: </label>
-              <input type='text' id='reference1Relation' />
-            </div>
-          </div>
-          <div className={styles['reference-2']}>
-            <p>Referensi 2</p>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference2Name'>Nama: </label>
-              <input type='text' id='reference2Name' />
-            </div>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference2Phone'>Phone: </label>
-              <input type='text' id='reference2Phone' />
-            </div>
-            <div className={styles['input-item']}>
-              <label htmlFor='reference2Relation'>Relation: </label>
-              <input type='text' id='reference2Relation' />
-            </div>
-          </div>
-        </div> */}
+        {phase === 0 && <Identity handleNext={handleNext} setIdentity={setIdentity} identity={identity} />}
+        {phase === 1 && (
+          <Education
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            setEducation={setEducation}
+            education={education}
+            setEducationCount={setEducationCount}
+            educationCount={educationCount}
+          />
+        )}
+        {phase === 2 && (
+          <Certification
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            setCertification={setCertification}
+            certification={certification}
+            certificationCount={certificationCount}
+            setCertificationCount={setCertificationCount}
+          />
+        )}
+        {phase === 3 && (
+          <Competence
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            setCompetence={setCompetence}
+            setAchievement={setAchievement}
+            achievement={achievement}
+          />
+        )}
+        {phase === 4 && <Remuneration handleNext={handleNext} handlePrevious={handlePrevious} />}
+        {phase === 5 && <Reference handleNext={handleNext} handlePrevious={handlePrevious} />}
       </form>
     </div>
   );
