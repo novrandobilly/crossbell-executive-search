@@ -4,19 +4,24 @@ import styles from './competence.module.scss';
 type CompetencePropTypes = {
   handleNext: () => void;
   handlePrevious: () => void;
+  competence: Array<string>;
   setCompetence: React.Dispatch<React.SetStateAction<Array<string>>>;
   setAchievement: React.Dispatch<React.SetStateAction<string>>;
+  competenceCount: number;
+  setCompetenceCount: React.Dispatch<React.SetStateAction<number>>;
   achievement: string;
 };
 
 const Competence: React.FC<CompetencePropTypes> = ({
   handleNext,
   handlePrevious,
+  competenceCount,
+  setCompetenceCount,
+  competence,
   setCompetence,
   setAchievement,
   achievement,
 }) => {
-  const [competenceCount, setCompetenceCount] = useState<number>(1);
   let competenceList = [];
 
   const handleAddCompetence = () => {
@@ -39,7 +44,12 @@ const Competence: React.FC<CompetencePropTypes> = ({
     competenceList.push(
       <div className={styles['input-item']} key={i}>
         <label htmlFor={`competence_${i}`}>{i + 1}.</label>
-        <input type='text' id={`competence_${i}`} onChange={(event) => handleCompetenceChange(event, i)} />
+        <input
+          type='text'
+          id={`competence_${i}`}
+          onChange={(event) => handleCompetenceChange(event, i)}
+          value={competence[i]}
+        />
       </div>
     );
   }
@@ -54,7 +64,7 @@ const Competence: React.FC<CompetencePropTypes> = ({
       </div>
 
       <div className={styles['achievement']}>
-        <label htmlFor='achievement'>ACHIEVEMENT (Related to Competence)</label>
+        <h3>ACHIEVEMENT (Related to Competence)</h3>
         <textarea
           name='achievement'
           id='achievement'

@@ -7,6 +7,7 @@ import Certification from '../components/talent-registration/certification';
 import Competence from '../components/talent-registration/competence';
 import Remuneration from '../components/talent-registration/remuneration';
 import Reference from '../components/talent-registration/reference';
+import Preview from '../components/talent-registration/preview';
 import styles from './talent-registration.module.scss';
 
 export type IdentityType = {
@@ -35,8 +36,26 @@ export type CertificationInputType = {
   validForever: boolean;
 };
 
+export type RemunerationInputType = {
+  currentSalary: string;
+  currentTax: string;
+  currentBenefit: string;
+  expectedSalary: string;
+  expectedTax: string;
+  expectedBenefit: string;
+};
+
+export type ReferenceType = {
+  referenceName_1: string;
+  referencePhone_1: string;
+  referenceRelation_1: string;
+  referenceName_2: string;
+  referencePhone_2: string;
+  referenceRelation_2: string;
+};
+
 const TalentRegistration: NextPage = () => {
-  const [phase, setPhase] = useState<number>(0);
+  const [phase, setPhase] = useState<number>(6);
   const [identity, setIdentity] = useState<IdentityType>({
     name: '',
     email: '',
@@ -57,10 +76,28 @@ const TalentRegistration: NextPage = () => {
       graduationYear: '',
     },
   ]);
+  const [certificationCount, setCertificationCount] = useState<number>(1);
   const [certification, setCertification] = useState<Array<CertificationInputType>>([]);
+  const [competenceCount, setCompetenceCount] = useState<number>(1);
   const [competence, setCompetence] = useState<Array<string>>([]);
   const [achievement, setAchievement] = useState<string>('');
-  const [certificationCount, setCertificationCount] = useState<number>(1);
+  const [remuneration, setRemuneration] = useState<RemunerationInputType>({
+    currentSalary: '',
+    currentTax: '',
+    currentBenefit: '',
+    expectedSalary: '',
+    expectedTax: '',
+    expectedBenefit: '',
+  });
+
+  const [reference, setReference] = useState<ReferenceType>({
+    referenceName_1: '',
+    referencePhone_1: '',
+    referenceRelation_1: '',
+    referenceName_2: '',
+    referencePhone_2: '',
+    referenceRelation_2: '',
+  });
 
   const handleNext = () => {
     setPhase((prev) => prev + 1);
@@ -119,13 +156,40 @@ const TalentRegistration: NextPage = () => {
           <Competence
             handleNext={handleNext}
             handlePrevious={handlePrevious}
+            competenceCount={competenceCount}
+            setCompetenceCount={setCompetenceCount}
+            competence={competence}
             setCompetence={setCompetence}
             setAchievement={setAchievement}
             achievement={achievement}
           />
         )}
-        {phase === 4 && <Remuneration handleNext={handleNext} handlePrevious={handlePrevious} />}
-        {phase === 5 && <Reference handleNext={handleNext} handlePrevious={handlePrevious} />}
+        {phase === 4 && (
+          <Remuneration
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            remuneration={remuneration}
+            setRemuneration={setRemuneration}
+          />
+        )}
+        {phase === 5 && (
+          <Reference
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            reference={reference}
+            setReference={setReference}
+          />
+        )}
+        {phase === 6 && (
+          <Preview
+            identity={identity}
+            education={education}
+            certification={certification}
+            competence={competence}
+            remuneration={remuneration}
+            reference={reference}
+          />
+        )}
       </form>
     </div>
   );

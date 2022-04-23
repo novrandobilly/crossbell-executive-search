@@ -73,6 +73,7 @@
 }
 
 .next-button {
+  width: 125px;
   outline: none;
   border: none;
   background-color: #f79f35;
@@ -80,7 +81,7 @@
   border: 2px solid #f79f35;
   border-radius: 10px;
   font-size: 1rem;
-  padding: 0.5em 1.5em;
+  padding: 0.5em 0;
   cursor: pointer;
 }
 

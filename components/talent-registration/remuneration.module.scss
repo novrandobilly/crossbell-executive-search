@@ -4,6 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h3 {
+    margin: 0 0 10px;
+    border-bottom: 2px solid #000;
+  }
 }
 
 .title {
