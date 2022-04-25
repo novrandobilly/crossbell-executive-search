@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './welcome.module.scss';
 import Image from 'next/image';
+import { Link as ScrollLink } from 'react-scroll';
 import Background from '../../assets/homepage/background.png';
 
 const Welcome = () => {
@@ -22,8 +23,10 @@ const Welcome = () => {
           <h1>Quality.</h1>
         </div>
         <div className={styles['cta-rfp']}>
-          <p>Are you a company?</p>
-          <button>Request For Proposal</button>
+          <p>Does your company need our services?</p>
+          <ScrollLink to='ContactUs' smooth={true} duration={800}>
+            <button>Request For Proposal</button>
+          </ScrollLink>
         </div>
       </div>
     </div>

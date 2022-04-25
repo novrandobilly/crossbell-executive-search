@@ -19,7 +19,9 @@ const OurServices = () => {
       /> */}
       <div className={styles['services']}>
         <div className={styles['service']}>
-          <Image alt='MULTI-DISCIPLINES' src={MultiDisciplines} width={100} height={100} />
+          <div className={styles['multi-discipline-image']}>
+            <Image alt='MULTI-DISCIPLINES' src={MultiDisciplines} layout='fill' objectFit='contain' />
+          </div>
           <h2>MULTI-DISCIPLINES</h2>
           <p>
             Providing multi-disciplines candidates, we prepared custom tailored solution to meet your company
@@ -27,7 +29,9 @@ const OurServices = () => {
           </p>
         </div>
         <div className={styles['service']}>
-          <Image alt='COMPETITIVE PRICE' src={Price} width={100} height={100} />
+          <div className={styles['competitive-price-image']}>
+            <Image alt='COMPETITIVE PRICE' src={Price} layout='fill' objectFit='contain' />
+          </div>
           <h2>COMPETITIVE PRICE</h2>
           <p>
             We offer interesting price on helping your company fulfilling human resource needs for critical and
@@ -37,12 +41,16 @@ const OurServices = () => {
       </div>
       <div className={styles['services']}>
         <div className={styles['service']}>
-          <Image alt='HIGH QUALITY' src={Quality} width={141} height={100} />
+          <div className={styles['high-quality-image']}>
+            <Image alt='HIGH QUALITY' src={Quality} layout='fill' objectFit='contain' />
+          </div>
           <h2>HIGH QUALITY</h2>
           <p>We select and filter our talents carefully to deliver only the best of the best for your company.</p>
         </div>
         <div className={styles['service']}>
-          <Image alt='GUARANTEE' src={Guarantee} width={83} height={100} />
+          <div className={styles['guarantee-image']}>
+            <Image alt='GUARANTEE' src={Guarantee} layout='fill' objectFit='contain' />
+          </div>
           <h2>GUARANTEE</h2>
           <p>
             No worries on holding probation time, we provide replacement if you don’t really click with them. Free of

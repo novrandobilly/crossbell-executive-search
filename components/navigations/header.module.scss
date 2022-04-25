@@ -20,9 +20,19 @@
   list-style: none;
   li {
     font-weight: 700;
+    cursor: pointer;
   }
 }
 
 .logo {
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 5px 15px;
+  }
+  .navigations {
+    display: none;
+  }
 }

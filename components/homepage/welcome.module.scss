@@ -77,3 +77,32 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: 675px;
+  }
+  .background-image {
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .main-title-container {
+    max-width: 300px;
+    & > * {
+      font-size: 3rem;
+    }
+  }
+
+  .cta-rfp {
+    p {
+      font-size: 1rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 5px 10px;
+    }
+  }
+}

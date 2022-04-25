@@ -40,3 +40,57 @@
     font-size: 1.25rem;
   }
 }
+
+.multi-discipline-image,
+.competitive-price-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.high-quality-image {
+  position: relative;
+  width: 141px;
+  height: 100px;
+}
+.guarantee-image {
+  position: relative;
+  width: 83px;
+  height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    margin: 0 0 20px;
+  }
+  .container {
+    padding: 20px;
+  }
+  .services {
+    flex-direction: column;
+  }
+  .service {
+    width: 100%;
+    margin: 0 0 40px;
+    min-height: auto;
+    h2,
+    p {
+      font-size: 1rem;
+    }
+  }
+  .multi-discipline-image,
+  .competitive-price-image {
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  .high-quality-image {
+    position: relative;
+    width: 70px;
+    height: 50px;
+  }
+  .guarantee-image {
+    position: relative;
+    width: 42px;
+    height: 50px;
+  }
+}
