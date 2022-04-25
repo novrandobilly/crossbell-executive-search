@@ -103,7 +103,7 @@ const Certification: React.FC<CertificationPropTypes> = ({
             <input
               type='checkbox'
               id={`validForever_${i}`}
-              value={i}
+              checked={certification[i]?.validForever || false}
               onChange={(event) => handleValidForever(event, i)}
             />
             <label htmlFor={`validForever_${i}`}>Valid Forever</label>

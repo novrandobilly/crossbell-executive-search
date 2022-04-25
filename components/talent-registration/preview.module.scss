@@ -1,0 +1,92 @@
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+  span {
+    font-weight: 700;
+    max-width: 800px;
+    word-wrap: break-word;
+  }
+  .data-title {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #000;
+  }
+}
+
+.identity,
+.education,
+.certification,
+.competence-achievement,
+.remuneration,
+.reference {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+}
+
+.data-item {
+  width: 100%;
+  display: flex;
+  span {
+    font-weight: 700;
+    max-width: 400px;
+    word-wrap: break-word;
+    text-transform: capitalize;
+  }
+}
+
+.data-cluster {
+  margin: 0 0 15px;
+}
+
+.competence {
+  margin-bottom: 20px;
+}
+.competence-list {
+  margin: 0;
+}
+
+.submit-button {
+  width: 125px;
+  outline: none;
+  border: none;
+  background-color: #f79f35;
+  color: #fff;
+  border: 2px solid #f79f35;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+
+.back-button {
+  outline: none;
+  border: none;
+  background-color: #fff;
+  color: #f79f35;
+  border: 2px solid #f79f35;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+}
+
+.buttons-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+}

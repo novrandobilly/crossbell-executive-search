@@ -1,14 +1,17 @@
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import Identity from '../components/talent-registration/identity';
-import Education from '../components/talent-registration/education';
-import Certification from '../components/talent-registration/certification';
-import Competence from '../components/talent-registration/competence';
-import Remuneration from '../components/talent-registration/remuneration';
-import Reference from '../components/talent-registration/reference';
-import Preview from '../components/talent-registration/preview';
-import styles from './talent-registration.module.scss';
+import Identity from '../../components/talent-registration/identity';
+import Education from '../../components/talent-registration/education';
+import Certification from '../../components/talent-registration/certification';
+import Competence from '../../components/talent-registration/competence';
+import Remuneration from '../../components/talent-registration/remuneration';
+import Reference from '../../components/talent-registration/reference';
+import Preview from '../../components/talent-registration/preview';
+import Backdrop from '../../components/shared/backdrop';
+import RegisterModal from '../../components/talent-registration/register-modal';
+import styles from './index.module.scss';
 
 export type IdentityType = {
   name: string;
@@ -55,7 +58,9 @@ export type ReferenceType = {
 };
 
 const TalentRegistration: NextPage = () => {
-  const [phase, setPhase] = useState<number>(6);
+  const router = useRouter();
+  const [showSubmit, setShowSubmit] = useState<boolean>(false);
+  const [phase, setPhase] = useState<number>(0);
   const [identity, setIdentity] = useState<IdentityType>({
     name: '',
     email: '',
@@ -77,7 +82,14 @@ const TalentRegistration: NextPage = () => {
     },
   ]);
   const [certificationCount, setCertificationCount] = useState<number>(1);
-  const [certification, setCertification] = useState<Array<CertificationInputType>>([]);
+  const [certification, setCertification] = useState<Array<CertificationInputType>>([
+    {
+      certificationTitle: '',
+      institution: '',
+      expirationDate: '',
+      validForever: false,
+    },
+  ]);
   const [competenceCount, setCompetenceCount] = useState<number>(1);
   const [competence, setCompetence] = useState<Array<string>>([]);
   const [achievement, setAchievement] = useState<string>('');
@@ -104,6 +116,34 @@ const TalentRegistration: NextPage = () => {
   };
   const handlePrevious = () => {
     if (phase > 0) setPhase((prev) => prev - 1);
+  };
+
+  const handleSubmit: React.FormEventHandler = async (e) => {
+    e.preventDefault();
+    const payload = {
+      ...identity,
+      education,
+      certification,
+      competence,
+      achievement,
+      remuneration,
+      reference,
+    };
+    console.log(payload);
+    try {
+      const res = await fetch('/api/talent-registration/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      setShowSubmit(false);
+      router.push('/talent-registration/success');
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className={styles['container']}>
@@ -182,14 +222,20 @@ const TalentRegistration: NextPage = () => {
         )}
         {phase === 6 && (
           <Preview
+            handlePrevious={handlePrevious}
             identity={identity}
             education={education}
             certification={certification}
             competence={competence}
             remuneration={remuneration}
             reference={reference}
+            achievement={achievement}
+            handleSubmit={handleSubmit}
+            setShowSubmit={setShowSubmit}
           />
         )}
+        {showSubmit && <Backdrop onCancel={() => setShowSubmit(false)} />}
+        <RegisterModal showSubmit={showSubmit} setShowSubmit={setShowSubmit} handleSubmit={handleSubmit} />
       </form>
     </div>
   );
