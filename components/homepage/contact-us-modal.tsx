@@ -21,6 +21,12 @@ const SuccessModal = styled.div<{ isSent: boolean }>`
   & > * {
     text-align: center;
   }
+
+  @media screen and (max-width: 768px) {
+    transform: translate(-50%, ${(props) => (props.isSent ? '450px' : '-300px')});
+    width: 100%;
+    max-width: 320px;
+  }
 `;
 
 type ContactUsModalType = {

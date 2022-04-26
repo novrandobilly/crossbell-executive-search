@@ -25,11 +25,15 @@ const RegisterModalContainer = styled.div<{ showSubmit: boolean }>`
   & > * {
     text-align: center;
   }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 340px;
+  }
 `;
 const RegisterModal: React.FC<RegisterModalType> = ({ showSubmit, setShowSubmit, handleSubmit }) => {
   return (
     <RegisterModalContainer showSubmit={showSubmit}>
-      <h1>Are you sure you want to submit?</h1>
+      <h1 className={styles['title']}>Are you sure you want to submit?</h1>
       <div className={styles['buttons-group']}>
         <button onClick={() => setShowSubmit(false)} type='button' className={styles['previous-button']}>
           Cancel
@@ -38,7 +42,7 @@ const RegisterModal: React.FC<RegisterModalType> = ({ showSubmit, setShowSubmit,
           Yes
         </button>
       </div>
-      <p>Please check carefully before submit your data.</p>
+      <p>Please check carefully before submitting your data.</p>
     </RegisterModalContainer>
   );
 };

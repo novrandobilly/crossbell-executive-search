@@ -33,3 +33,17 @@
   padding: 0.5em 0;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.25rem;
+  }
+  .buttons-group {
+    justify-content: space-evenly;
+  }
+  .next-button,
+  .previous-button {
+    width: 100px;
+    padding: 0.25em 0;
+  }
+}

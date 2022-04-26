@@ -170,6 +170,15 @@ const TalentRegistration: NextPage = () => {
         <span></span>
         <p style={phase >= 5 ? { backgroundColor: '#f79f35', color: '#fff' } : undefined}>REFERENCE</p>
       </div>
+      <div className={styles['steps-mobile']}>
+        {phase === 0 && <p>&lt;1 of 6&gt; </p>}
+        {phase === 1 && <p>&lt;2 of 6&gt; </p>}
+        {phase === 2 && <p>&lt;3 of 6&gt; </p>}
+        {phase === 3 && <p>&lt;4 of 6&gt; </p>}
+        {phase === 4 && <p>&lt;5 of 6&gt; </p>}
+        {phase === 5 && <p>&lt;6 of 6&gt; </p>}
+      </div>
+
       <form className={styles['talent-registration-form']}>
         {phase === 0 && <Identity handleNext={handleNext} setIdentity={setIdentity} identity={identity} />}
         {phase === 1 && (

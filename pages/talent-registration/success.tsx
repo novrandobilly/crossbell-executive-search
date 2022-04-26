@@ -20,7 +20,7 @@ const TalentRegistration: NextPage = () => {
       </Head>
       <div className={styles['success-message']}>
         <h1>Congratulations!</h1>
-        <h3>Your data has successfully been submitted!</h3>
+        <h3>Your data has successfully submitted!</h3>
         <Image alt='Checked' src={Checked} width={100} height={100} />
         <p>
           Crossbell Team will proceed your data and contact further if there are any Executive Position matched with

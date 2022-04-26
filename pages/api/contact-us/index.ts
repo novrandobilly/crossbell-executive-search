@@ -17,7 +17,7 @@ const contactHandler = (req: NextApiRequest, res: NextApiResponse) => {
 
     const emailData = {
       from: 'crossbellcorps@gmail.com',
-      to: 'novrandobilly@gmail.com',
+      to: ['novrandobilly@gmail.com', 'john.purba@gmail.com'],
       subject: subject,
       text: 'Crossbell Executive Search',
       html: `<div>

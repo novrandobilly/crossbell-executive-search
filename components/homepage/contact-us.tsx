@@ -104,14 +104,14 @@ const ContactUs = () => {
             )}
           </form>
 
-          <h1>Or, talk with us directly!</h1>
+          <h1 className={styles['talk-directly-title']}>Or, talk with us directly!</h1>
           <div className={styles['contact-item']}>
             <Image src={Phone} alt='Phone Number' width={25} height={25} />
-            <p>+62 821 3000 6695</p>
+            <p>+62 811-855-212</p>
           </div>
           <div className={styles['contact-item']}>
             <Image src={Mail} alt='Email Address' width={25} height={25} />
-            <p>admin@crossbell.com</p>
+            <p>john.purba@gmail.com</p>
           </div>
           <div className={styles['contact-item']}>
             <Image src={Linkedin} alt='Linkedin Address' width={25} height={25} />

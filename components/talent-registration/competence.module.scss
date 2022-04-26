@@ -119,3 +119,11 @@
   padding: 0.5em 0;
   cursor: pointer;
 }
+
+@media screen and(max-width:768px) {
+  .achievement {
+    h3 {
+      text-align: center;
+    }
+  }
+}

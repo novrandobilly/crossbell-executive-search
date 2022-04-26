@@ -114,3 +114,20 @@
   padding: 0.5em 0;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .remuneration {
+    & > .input-item {
+      flex-direction: column;
+      align-items: flex-start;
+      label {
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+  }
+  .tax {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

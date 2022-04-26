@@ -64,7 +64,7 @@ const Remuneration: React.FC<RemunerationPropTypes> = ({
           </div>
         </div>
         <div className={styles['input-item']}>
-          <label htmlFor='currentBenefit'>Benefit outside salary: </label>
+          <label htmlFor='currentBenefit'>Current benefit outside salary: </label>
           <input
             type='text'
             id='currentBenefit'
@@ -114,7 +114,7 @@ const Remuneration: React.FC<RemunerationPropTypes> = ({
           </div>
         </div>
         <div className={styles['input-item']}>
-          <label htmlFor='expectedBenefit'>Benefit outside salary: </label>
+          <label htmlFor='expectedBenefit'>Expected benefit outside salary: </label>
           <input
             type='text'
             id='expectedBenefit'

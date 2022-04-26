@@ -7,3 +7,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.25rem;
+  }
+}

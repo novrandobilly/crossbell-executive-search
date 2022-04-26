@@ -43,3 +43,26 @@
     background-color: #f79f35;
   }
 }
+
+.steps-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  .steps {
+    display: none;
+  }
+
+  .steps-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+}
