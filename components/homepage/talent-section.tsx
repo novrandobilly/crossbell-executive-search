@@ -7,7 +7,7 @@ const Talent = () => {
     <div className={styles['container']}>
       <div className={styles['talent-section']}>
         <h1 className={styles['title']}>Qualified Enough To Be Our Talent?</h1>
-        <h1 className={styles['title']}>Apply Now To Join Our Selection Process!</h1>
+        <h1 className={styles['title']}>Apply now to find a new great opportunity for your bright future!</h1>
         <Link passHref href='/talent-registration'>
           <button>Apply As Talent</button>
         </Link>

@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Welcome from '../components/homepage/welcome';
 import VisionMission from '../components/homepage/vision-mission';
-import OurServices from '../components/homepage/our-services';
+import WhatWeProvide from '../components/homepage/what-we-provide';
 import Experiences from '../components/homepage/experiences';
 import ContactUs from '../components/homepage/contact-us';
 import Talent from '../components/homepage/talent-section';
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <main className={styles['container']}>
         <Welcome />
         <VisionMission />
-        <OurServices />
+        <WhatWeProvide />
         <Experiences />
         <ContactUs />
         <Talent />

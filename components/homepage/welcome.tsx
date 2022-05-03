@@ -18,12 +18,12 @@ const Welcome = () => {
         <p className={styles['subtitle']}>CROSSBELL EXECUTIVE SEARCH</p>
         <div className={styles['main-title-container']}>
           <h1>Where</h1>
-          <h1>Quality,</h1>
+          <h1>Quality</h1>
           <h1>Meets</h1>
-          <h1>Quality.</h1>
+          <h1>Quality</h1>
         </div>
         <div className={styles['cta-rfp']}>
-          <p>Does your company need our services?</p>
+          <p>How can our services meet your needs?</p>
           <ScrollLink to='ContactUs' smooth={true} duration={800}>
             <button>Request For Proposal</button>
           </ScrollLink>

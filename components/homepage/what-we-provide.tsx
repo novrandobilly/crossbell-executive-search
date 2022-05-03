@@ -5,12 +5,13 @@ import MultiDisciplines from '../../assets/homepage/our-services/MultiDiscipline
 import Price from '../../assets/homepage/our-services/Price.png';
 import Quality from '../../assets/homepage/our-services/Quality.png';
 import Guarantee from '../../assets/homepage/our-services/Guarantee.png';
-import styles from './our-services.module.scss';
+import styles from './what-we-provide.module.scss';
 
 const OurServices = () => {
   return (
     <div className={styles['container']}>
-      <h1 className={styles['title']}>Our Services</h1>
+      <h1 className={styles['title']}>What We Provide</h1>
+
       {/* <Image
         alt='Our Services'
         src={Silhouette}
@@ -45,7 +46,10 @@ const OurServices = () => {
             <Image alt='HIGH QUALITY' src={Quality} layout='fill' objectFit='contain' />
           </div>
           <h2>HIGH QUALITY</h2>
-          <p>We select and filter our talents carefully to deliver only the best of the best for your company.</p>
+          <p>
+            We select and filter our executive candidates and deliver only qualified candidate that fit to your specific
+            requirement.
+          </p>
         </div>
         <div className={styles['service']}>
           <div className={styles['guarantee-image']}>

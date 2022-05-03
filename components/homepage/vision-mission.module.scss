@@ -1,3 +1,18 @@
+.title {
+  margin: 0 0 10px;
+  border-bottom: 2px solid black;
+}
+
+.subtitle {
+  width: min(100%, 700px);
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
 .container {
   padding: 0;
   margin: 0 auto;
@@ -57,6 +72,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .subtitle {
+    font-size: 1rem;
+  }
   .container {
     padding: 30px 20px;
   }

@@ -7,7 +7,11 @@ import styles from './vision-mission.module.scss';
 const VisionMission = () => {
   return (
     <div className={styles['container']}>
-      <div className={styles['vision-mission']}>
+      <h1 className={styles['title']}>Our Services</h1>
+      <p className={styles['subtitle']}>
+        Providing executive search services in seeking out qualified executives that fit to your organization.
+      </p>
+      {/* <div className={styles['vision-mission']}>
         <div className={styles['vision']}>
           <div className={styles['vision-image']}>
             <Image alt='Vision Icon' src={Vision} layout='fill' objectFit='contain' />
@@ -25,7 +29,7 @@ const VisionMission = () => {
             <li>Providing a job market platform for employers to get suitable candidate profiles.</li>
           </ol>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
